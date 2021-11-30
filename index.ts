@@ -20,9 +20,11 @@ import * as pptr from 'puppeteer';
         'upgrade-insecure-requests': '1',
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.0 Safari/537.36'
     })
-    await page.goto('https://market.binaryx.pro/getSales?page=1&page_size=5&status=selling&sort=time&direction=desc');
+    await page.goto('https://market.binaryx.pro/getSales?page=1&page_size=5&status=selling&sort=time&direction=desc', {
+        waitUntil: "networkidle0"
+    });
 
-    await page.waitForTimeout(1000);
+    // await page.waitForTimeout(1000);
     // await browser.waitForTarget(x => x.url() === 'https://market.binaryx.pro/getSales?page=1&page_size=5&status=selling&sort=time&direction=desc')
     
     // await page.waitForResponse(res => res.ok());
